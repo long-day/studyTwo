@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         CSDN体验优化
+// @name         CSDN 体验优化
 // @namespace    longday
 // @version      0.2
 // @description  优化CSDN的非登录状态下的文章体验
