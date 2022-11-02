@@ -1,0 +1,65 @@
+package me.longDay;
+
+import me.longDay.LeetCode.MyStack;
+import me.longDay.LeetCode.Solution;
+import org.junit.Test;
+
+import java.util.List;
+
+/**
+ * @author 君
+ * @version 1.0
+ * @desc TODO
+ * @since 2022-10-27
+ */
+public class MainTest {
+    /**
+     * 力扣 13 罗马数字转整数
+     */
+    @Test
+    public void romanToInt(){
+        Solution solution = new Solution();
+        int res = solution.romanToInt("MCMXCIV");
+        System.out.println(res);
+    }
+
+    /**
+     * 力扣
+     */
+    @Test
+    public void removeElement(){
+        int[] nums = new int[]{2};
+        Solution solution = new Solution();
+        int len = solution.removeElement(nums, 3);
+
+        for (int i = 0; i < len; i++) {
+            System.out.print(nums[i]+" ");
+        }
+    }
+
+    /**
+     * 225
+     */
+    @Test
+    public void myStack(){
+        MyStack myStack = new MyStack();
+        myStack.push(1);
+        myStack.push(2);
+        System.out.println(myStack.top()); // 返回 2
+        System.out.println(myStack.pop()); // 返回 2
+        System.out.println(myStack.empty()); // 返回 False
+
+    }
+
+    /**
+     * 力扣 15
+     */
+    @Test
+    public void threeSumTest(){
+        int[] nums = new int[]{-1,0,1,2,-1,-4};
+        Solution solution = new Solution();
+        List<List<Integer>> lists = solution.threeSum(nums);
+        System.out.println(lists);
+    }
+
+}
