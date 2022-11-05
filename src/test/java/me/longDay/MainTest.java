@@ -62,4 +62,22 @@ public class MainTest {
         System.out.println(lists);
     }
 
+    /**
+     * 力扣 6
+     */
+    @Test
+    public void convertTest(){
+        Solution solution = new Solution();
+        String convert = solution.convert("PAYPALISHIRING",3);
+        System.out.println(convert);
+    }
+    /**
+     * 剑指offer03
+     */
+    @Test
+    public void findRepeatNumber(){
+        Solution solution = new Solution();
+        System.out.println(solution.findRepeatNumber(new int[]{2, 3, 1, 0, 2, 5, 3}));
+    }
+
 }

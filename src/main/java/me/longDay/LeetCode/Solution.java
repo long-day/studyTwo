@@ -1,9 +1,6 @@
 package me.longDay.LeetCode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Solution {
     public int removeElement(int[] nums, int val) {
@@ -114,7 +111,7 @@ public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         int len = nums.length;
         List<List<Integer>> res = new ArrayList<>();
-        if (len<3){
+        if (len < 3) {
             return res;
         }
         Arrays.sort(nums);
@@ -145,4 +142,47 @@ public class Solution {
         return res;
     }
 
+    /**
+     * 力扣 6
+     *
+     * @return #
+     */
+    public String convert(String s, int numRows) {
+        if(numRows < 2){
+            return s;
+        }
+        ArrayList<StringBuilder> bufferLists = new ArrayList<>(numRows);
+        for (int i = 0; i < numRows; i++) {
+            bufferLists.add(new StringBuilder());
+        }
+        int ptrToBufferLists = 0;
+        int isPositiveCycle = -1;
+        for (char ch : s.toCharArray()) {
+            bufferLists.get(ptrToBufferLists).append(ch);
+            if (ptrToBufferLists == 0 || ptrToBufferLists == numRows - 1) {
+                isPositiveCycle = -isPositiveCycle;
+            }
+            ptrToBufferLists += isPositiveCycle;
+        }
+        StringBuilder res = new StringBuilder();
+        bufferLists.forEach(res::append);
+
+        return res.toString();
+    }
+
+    /**
+     * 力扣 剑指offer03
+     */
+    public int findRepeatNumber(int[] nums) {
+        HashSet<Integer> map = new HashSet<>();
+        int i;
+        for ( i = 0; i < nums.length; i++) {
+            if(map.contains(nums[i])){
+                break;
+            }else {
+                map.add(nums[i]);
+            }
+        }
+        return nums[i];
+    }
 }
