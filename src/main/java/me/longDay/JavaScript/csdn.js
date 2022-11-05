@@ -7,6 +7,7 @@
 // @match        *://blog.csdn.net/*/article/details/*
 // @match        *://bbs.csdn.net/topics/*
 // @match        *://www.zhihu.com/question/*
+// @match        *://www.jianshu.com/p/*
 // @grant        none
 // @icon         none
 // @run-at       document-end
@@ -52,6 +53,17 @@
     let zhExpandArticle = "RichContent-inner RichContent-inner--collapsed"
 
 
+    // 简书DOM常量 均为CSS选择器
+    let jsWebUrl = "www.jianshu.com";
+    let jsHideCssList = [];
+    //前往app按钮
+    jsHideCssList.push("download-app-guidance")
+    //阅读全文按钮
+    jsHideCssList.push("collapse-tips")
+
+    // 展开文章，删除该DOM的style和class以展开全文
+    let jsExpandArticle = "collapse-free-content"
+
     //平台判断
     let isMobile = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
     let webHostUrl = location.hostname
@@ -77,6 +89,15 @@
                 expandHideArticle(zhExpandArticle);
             }
 
+            //简书
+            else if(webHostUrl === jsWebUrl){
+                printMsg("简书优化检测...")
+                //隐藏按钮
+                hideElements(jsHideCssList);
+                //展开文章
+                expandHideArticle(jsExpandArticle);
+            }
+
         }, 2000)
         //最大执行次数 默认666次 大概20分钟内都会检测执行
         if (curCnt > maxCnt) {
@@ -94,7 +115,8 @@
     function hideOneElement(cssChoice) {
         let element = document.getElementsByClassName(cssChoice)[0];
         if (element && element instanceof Element) {
-            element.remove();
+            element.removeAttribute("class")
+            element.style.setProperty('display', 'none', 'important');
         }
     }
 
@@ -107,8 +129,12 @@
     function expandHideArticle(cssChoice) {
         let element = document.getElementsByClassName(cssChoice)[0];
         if (element && element instanceof Element) {
-            element.removeAttribute("style");
+            // element.removeAttribute("style");
             element.removeAttribute("class")
+            // element.style.height = "auto";
+             element.style.setProperty('height', 'auto', 'important');
+            // element.style.maxHeight = "none";
+             element.style.setProperty('max-height', null, 'important');
         }
     }
 
