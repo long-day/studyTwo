@@ -187,7 +187,7 @@ public class Solution {
     }
 
     /**
-     * 力扣56 (self)
+     * 力扣56 (self )
      */
     public int[][] merge(int[][] intervals) {
         int len = intervals.length;// 1=<len<=10_000
