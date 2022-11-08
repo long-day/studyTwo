@@ -148,7 +148,7 @@ public class Solution {
      * @return #
      */
     public String convert(String s, int numRows) {
-        if(numRows < 2){
+        if (numRows < 2) {
             return s;
         }
         ArrayList<StringBuilder> bufferLists = new ArrayList<>(numRows);
@@ -176,13 +176,39 @@ public class Solution {
     public int findRepeatNumber(int[] nums) {
         HashSet<Integer> map = new HashSet<>();
         int i;
-        for ( i = 0; i < nums.length; i++) {
-            if(map.contains(nums[i])){
+        for (i = 0; i < nums.length; i++) {
+            if (map.contains(nums[i])) {
                 break;
-            }else {
+            } else {
                 map.add(nums[i]);
             }
         }
         return nums[i];
+    }
+
+    /**
+     * 力扣56
+     */
+    public int[][] merge(int[][] intervals) {
+        int len = intervals.length;// 1=<len<=10_000
+        ArrayList<int[]> res = new ArrayList<>();
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+        int curMaxRight = intervals[0][1];
+        res.add(intervals[0]);
+        for (int i = 1; i < len; i++) {
+            if (intervals[i][0] > curMaxRight) {//需要创建一个新区间
+                res.add(intervals[i]);
+                curMaxRight = Math.max(curMaxRight, intervals[i][1]);//更新最大值
+            } else {
+                for (int i1 = res.size() - 1; i1 >= 0; i1--) {
+                    if (intervals[i][0] >= res.get(i1)[0]) {
+                        res.get(i1)[1] = Math.max(res.get(i1)[1], intervals[i][1]);
+                        curMaxRight = Math.max(curMaxRight, res.get(i1)[1]);
+                        break;
+                    }
+                }
+            }
+        }
+        return res.toArray(new int[0][0]);
     }
 }

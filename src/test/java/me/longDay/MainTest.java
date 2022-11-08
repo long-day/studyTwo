@@ -4,6 +4,7 @@ import me.longDay.LeetCode.MyStack;
 import me.longDay.LeetCode.Solution;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -78,6 +79,16 @@ public class MainTest {
     public void findRepeatNumber(){
         Solution solution = new Solution();
         System.out.println(solution.findRepeatNumber(new int[]{2, 3, 1, 0, 2, 5, 3}));
+    }
+
+    /**
+     * 力扣56
+     */
+    @Test
+    public void mergeTest() {
+        int[][] nums = new int[][]{{1,3},{2,6},{8,10},{15,18}};
+        Solution solution = new Solution();
+        System.out.println(Arrays.deepToString(solution.merge(nums)));
     }
 
 }
