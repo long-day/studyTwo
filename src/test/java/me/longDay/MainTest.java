@@ -2,7 +2,7 @@ package me.longDay;
 
 import me.longDay.LeetCode.MyStack;
 import me.longDay.LeetCode.Solution;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -89,6 +89,14 @@ public class MainTest {
         int[][] nums = new int[][]{{1,3},{2,6},{8,10},{15,18}};
         Solution solution = new Solution();
         System.out.println(Arrays.deepToString(solution.merge(nums)));
+    }
+
+    @Test
+    void other(){
+
+
+
+
     }
 
 }

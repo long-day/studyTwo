@@ -1,0 +1,16 @@
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/db1?useSSL=false&useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT&allowPublicKeyRetrieval=true
+
+server:
+  port: 10087
+
+logging:
+  pattern:
+    console: "%d{MM‐dd HH:mm:ss} - [%thread] %5level %logger{50} - %msg%n"
+  level:
+    me.longDay : debug
