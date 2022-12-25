@@ -9,18 +9,18 @@ spring:
 server:
   port: 10087
 
-logging:
-  pattern:
-    console: "%d{MM‐dd HH:mm:ss} - [%thread] %5level %logger{50} - %msg%n"
-  level:
-    me.longDay : debug
+#logging:
+#  pattern:
+#    console: "%d{MM‐dd HH:mm:ss} - [%thread] %5level %logger{50} - %msg%n"
+#  level:
+#    me.longDay : debug
 
-longday:
-  logging:
-    pattern:
-      console: "%d{MM‐dd HH:mm:ss} - [%thread] %5level %logger{50} - %msg%n"
-      file: ""
-    file:
-      path: ""
-    level:
-      me.longday: "debug"
+#longday:
+#  logging:
+#    pattern:
+#      console: "%d{MM‐dd HH:mm:ss} - [%thread] %5level %logger{50} - %msg%n"
+#      file: ""
+#    file:
+#      path: ""
+#    level:
+#      me.longday: "debug"
