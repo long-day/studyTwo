@@ -20,6 +20,9 @@
     <!-- 定义日志输出格式-->
     <property name="log.pattern"
               value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread]%logger{56}.%method:%L -%msg%n"/>
+    <property name="log.pattern.test"
+              value="%d{MM-dd HH:mm:ss} %-5level [%thread]%logger{0}.%method:%L --> %msg%n"/>
+    <!--日志信息编码格式-->
     <property name="log.charset" value="UTF-8"/>
 
     <!--控制台输出 -->
@@ -27,6 +30,15 @@
         <!-- 用来定义日志的格式 -->
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${log.pattern}</pattern>
+            <charset>${log.charset}</charset>
+        </encoder>
+    </appender>
+
+    <!--测试专用-控制台输出 -->
+    <appender name="stdout-test" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 用来定义日志的格式 -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${log.pattern.test}</pattern>
             <charset>${log.charset}</charset>
         </encoder>
     </appender>
@@ -110,14 +122,21 @@
     <!-- 为某个包下的所有类的指定Appender 这里也可以指定类名称例如：com.aa.bb.ClassName -->
     <logger name="me.longDay" additivity="false">
         <level value="debug" />
+<!--        <appender-ref ref="stdout" />-->
+        <appender-ref ref="stdout-test"/>
+    </logger>
+    <!-- 屏蔽掉没用的SpringBoot打印输出-->
+    <logger name="org.springframework">
+        <level value="WARN"/>
         <appender-ref ref="stdout" />
     </logger>
+
     <!-- root将级别为“DEBUG”及大于“DEBUG”的日志信息交给已经配置好的名为“Console”的appender处理，“Console”appender将信息打印到Console -->
     <root level="info">
         <appender-ref ref="stdout" /> <!-- 标识这个appender将会添加到这个logger -->
-        <appender-ref ref="infoFile" />
-        <appender-ref ref="warnFile" />
-        <appender-ref ref="errorFile" />
+<!--        <appender-ref ref="infoFile" />-->
+<!--        <appender-ref ref="warnFile" />-->
+<!--        <appender-ref ref="errorFile" />-->
     </root>
 </configuration>
 

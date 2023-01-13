@@ -5,7 +5,16 @@ spring:
     username: root
     password: 123456
     url: jdbc:mysql://localhost:3306/db1?useSSL=false&useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT&allowPublicKeyRetrieval=true
-
+  redis:
+    host: 20.89.132.66
+    port: 34568
+    password: longday
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: 100ms
 server:
   port: 10087
 

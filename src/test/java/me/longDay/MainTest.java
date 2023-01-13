@@ -3,6 +3,8 @@ package me.longDay;
 import me.longDay.LeetCode.MyStack;
 import me.longDay.LeetCode.Solution;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.List;
  * @since 2022-10-27
  */
 public class MainTest {
+    public static final Logger log = LoggerFactory.getLogger(MainTest.class);
     /**
      * 力扣 13 罗马数字转整数
      */
@@ -93,10 +96,8 @@ public class MainTest {
 
     @Test
     void other(){
-
-
-
-
+        String name = "hello";
+        log.info("这是一个{}测试",name);
     }
 
 }
