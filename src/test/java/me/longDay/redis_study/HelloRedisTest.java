@@ -1,4 +1,4 @@
-package me.longDay.reids_study;
+package me.longDay.redis_study;
 
 import me.longDay.pojo.UserInfo;
 import me.longDay.utils.LdObjectMapper;
@@ -26,7 +26,7 @@ public class HelloRedisTest {
     private StringRedisTemplate stringRedisTemplate;
     @Test
     void testString(){
-        UserInfo user = new UserInfo("焰灵姬", 16);
+        UserInfo user = new UserInfo("焰灵姬", 16,"");
         redisTemplate.opsForValue().set("焰灵姬",user);
 
         Object name = redisTemplate.opsForValue().get("焰灵姬");
@@ -35,7 +35,7 @@ public class HelloRedisTest {
 
     @Test
     void stringRedisTemplate(){
-        UserInfo ylj = new UserInfo("焰灵姬", 16);
+        UserInfo ylj = new UserInfo("焰灵姬", 16,"");
         try {
             String userInfo = LdObjectMapper.OBJECT_MAPPER.writeValueAsString(ylj);
             stringRedisTemplate.opsForValue().set("焰灵姬2",userInfo);
